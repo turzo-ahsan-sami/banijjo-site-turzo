@@ -1,0 +1,188 @@
+.featuredcat_new_label_topSelection {
+  color: #ffffff;
+  background-color: #009345;
+  font-size: 10px;
+  display: block;
+  position: absolute;
+}
+
+.featuredcat_new_label_discount_topSelection {
+  color: rgb(255, 255, 255);
+  background-color: #d7292a;
+  padding: 4px 3px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  bottom: 35px;
+  right: 3px;
+  height: 18px;
+  width: 18px;
+  font-size: 8px;
+}
+
+.featuredcat_new_label_discount_topSelemob {
+  color: rgb(255, 255, 255);
+  background-color: #d7292a;
+  padding: 4px 3px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  height: 18px;
+  width: 18px;
+  font-size: 8px;
+}
+
+.featuredcat_title_topSelection {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: -6px;
+}
+
+.featuredcat_price_topSelection {
+  color: #333;
+  font-size: 11px;
+  font-weight: 700;
+  /* margin-top: 2px; */
+  margin-top: -3px;
+  text-align: center;
+}
+
+.featuredcat_price_topSelection span {
+  color: #999999;
+  font-size: 10px;
+  text-decoration: line-through;
+  margin-left: 4px;
+}
+.aclass {
+  color: #333;
+}
+
+.aclass:hover {
+  color: #009345;
+}
+
+.helperframeFeatureCatSmTwoImage {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  /* height: 70px; */
+  background: #ffffff;
+}
+
+.featuredcattwoimage_new_label_topSelection {
+  color: #ffffff;
+  background-color: #009345;
+  font-size: 12px;
+  display: block;
+  position: absolute;
+}
+
+.featuredcattwoimage_new_label_discount_topSelection {
+  color: rgb(255, 255, 255);
+  background-color: #d7292a;
+  padding: 4px 2px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  bottom: 31px;
+  right: 26px;
+  height: 20px;
+  width: 20px;
+  font-size: 9px;
+}
+
+.featuredcattwoimage_new_label_discount_topSelmob {
+  color: rgb(255, 255, 255);
+  background-color: #d7292a;
+  padding: 4px 2px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  height: 20px;
+  width: 20px;
+  font-size: 9px;
+}
+
+.featuredcattwoimage_title_topSelection {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: -6px;
+}
+
+.featuredcattwoimage_price_topSelection {
+  color: #333;
+  font-size: 11px;
+  font-weight: 700;
+  /* margin-top: 2px; */
+  margin-top: -3px;
+  text-align: center;
+}
+
+.featuredcattwoimage_price_topSelection span {
+  color: #999999;
+  font-size: 10px;
+  text-decoration: line-through;
+  margin-left: 4px;
+}
+
+.featuredcatoneimage_new_label_topSelection {
+  color: #ffffff;
+  background-color: #009345;
+  font-size: 18px;
+  display: block;
+  position: absolute;
+}
+
+.featuredcatoneimage_new_label_discount_topSelection {
+  color: rgb(255, 255, 255);
+  background-color: #d7292a;
+  padding: 8px 6px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  bottom: 48px;
+  right: 2px;
+  height: 35px;
+  width: 35px;
+  font-size: 14px;
+}
+
+.featuredcatoneimage_new_label_discount_topSelmob {
+  color: rgb(255, 255, 255);
+  background-color: #d7292a;
+  padding: 8px 6px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  height: 35px;
+  width: 35px;
+  font-size: 14px;
+}
+
+.featuredcatoneimage_title_topSelection {
+  font-size: 15px;
+  font-weight: normal;
+  margin-top: -6px;
+}
+
+.featuredcatoneimage_price_topSelection {
+  color: #333;
+  font-size: 11px;
+  font-weight: 700;
+  /* margin-top: 2px; */
+  margin-top: -3px;
+  text-align: center;
+}
+
+.featuredcatoneimage_price_topSelection span {
+  color: #999999;
+  font-size: 15px;
+  text-decoration: line-through;
+  margin-left: 4px;
+}

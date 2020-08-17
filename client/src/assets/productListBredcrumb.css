@@ -1,0 +1,18 @@
+.breadcrumbProduct > li {
+  display: inline-block;
+}
+.breadcrumbProduct {
+  padding: 6px 12px;
+  list-style: none;
+  background-color: #f5f5f5;
+  /*border-radius: 4px;*/
+  font-size: 16px;
+  /*margin-left: 15px;*/
+}
+.breadcrumbProduct > li + li::before {
+  padding: 0 5px;
+  color: #3b3b3b;
+  /*font-family: FontAwesome;*/
+  content: '>>';
+  font-weight: bold;
+}

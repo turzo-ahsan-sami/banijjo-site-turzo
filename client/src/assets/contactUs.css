@@ -1,0 +1,72 @@
+/*--------------contact-page------------------------*/
+
+.contact-page #contentSection {
+  margin-top: 50px;
+}
+.contact-page #global-header::before {
+  background: #000 !important;
+}
+.contact-page #global-header .block h1 {
+  color: #fff;
+}
+.contact-info .email-left {
+  float: left;
+  padding-right: 20px;
+  color: #fff;
+  /* font-size: 25px;*/
+  font-size: 13px;
+}
+.contact-info .email-left i {
+  /*  background-color: #ff9900;*/
+  background-color: #009345;
+  padding: 12px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 150px;
+  border-radius: 10px;
+}
+.contact-info .email-right {
+  display: table-cell;
+  font-size: 22px;
+}
+.contact-info .email-right span {
+  letter-spacing: 1px;
+  color: #666;
+  font-size: 18px;
+}
+.contact-info .email-right h4 {
+  font-size: 22px;
+}
+.contact-page .contact-form h2 {
+  margin-bottom: 0px;
+}
+.contact-page .contact-form .note {
+  color: #666;
+  margin-bottom: 10px;
+}
+.send-a-message {
+  width: 100%;
+  display: inline-block;
+  padding: 20px;
+  background-color: #fff;
+}
+.send-a-message h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.send-a-message label {
+  font-weight: 400;
+}
+.send-a-message .form-control {
+  border-radius: 0px;
+}
+.send-a-message input.form-control {
+  height: 42px;
+  background-color: #f2f2f2;
+}
+.send-a-message select.form-control {
+  height: 42px;
+  background-color: #f2f2f2;
+}
+.send-a-message textarea.form-control {
+  background: #f2f2f2;
+}

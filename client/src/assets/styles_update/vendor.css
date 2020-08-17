@@ -1,0 +1,13 @@
+/*vendor page Design*/
+/*.vendor-title {*/
+/*  color: #565356;*/
+/*  background-color: #d0d2d7;*/
+/*}*/
+
+.btn-color,
+.btn-color:hover,
+.btn-color:active,
+.btn-color:visited {
+  background-color: #009345;
+  border: 1px solid transparent;
+}

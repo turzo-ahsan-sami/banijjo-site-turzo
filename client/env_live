@@ -1,0 +1,24 @@
+PORT=3000
+CHOKIDAR_USEPOLLING=true
+REACT_APP_FRONTEND_SERVER_URL = http://localhost:3001
+REACT_APP_FRONTEND_URL = http://localhost:3000/
+REACT_APP_FILE_URL = http://localhost:3005
+HTTS=true
+
+CHOKIDAR_USEPOLLING=true
+REACT_APP_FRONTEND_SERVER_URL = https://banijjo.com.bd:3001
+REACT_APP_FRONTEND_URL = https://banijjo.com.bd/
+REACT_APP_FILE_URL = https://admin.banijjo.com.bd
+
+
+CHOKIDAR_USEPOLLING=true
+REACT_APP_FRONTEND_SERVER_URL = https://banijjo.com:3006
+REACT_APP_FRONTEND_URL = https://banijjo.com/
+REACT_APP_FILE_URL = https://admin.banijjo.com
+
+local & bd
+REACT_APP_FRONTEND_Local_SERVER_URL = http://localhost:3001
+com
+REACT_APP_FRONTEND_Local_SERVER_URL = http://localhost:3006
+
+

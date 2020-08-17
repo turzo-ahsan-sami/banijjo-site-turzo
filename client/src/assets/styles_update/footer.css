@@ -1,0 +1,65 @@
+/*footer design*/
+.footer-background-first {
+  background: #d0d2d7;
+  height: 8px;
+}
+
+.footer-background-second {
+  background: #a6a8ab;
+  color: #3b3b3d;
+}
+
+.footer-background-last {
+  background: #d0d2d7;
+}
+
+.footer-background-social {
+  background: #ffffff;
+}
+
+.footer-background-second a {
+  color: #404142;
+}
+
+.footer-font-size {
+  font-size: 1rem;
+}
+
+.footer-font-size a:hover {
+  color: #ffffff;
+}
+
+.banijjo-link {
+  color: #009345;
+}
+
+.qr-img {
+  margin-left: -23px;
+  margin-bottom: -21px;
+  margin-top: -27px;
+  width: 135px;
+}
+
+.facebook-color a:hover {
+  color: #3b5998;
+}
+
+.twitter-color a:hover {
+  color: #26a7de;
+}
+
+.linkedin-color a:hover {
+  color: #0e76a8;
+}
+
+.instagram-color a:hover {
+  color: #e1306c;
+}
+
+.youtube-color a:hover {
+  color: #c4302b;
+}
+
+.pinterest-color a:hover {
+  color: #c8232c;
+}

@@ -1,0 +1,74 @@
+.custom-font-size {
+  font-size: 14px;
+}
+
+.max-height-65 {
+  max-height: 68px;
+}
+
+.max-height-85 {
+  max-height: 85px;
+}
+
+.mt-2 {
+  margin-top: 1.4rem !important;
+}
+
+.product-new-label-discount-feature-parent {
+  position: absolute;
+  color: #fff;
+  background-color: #d7292a;
+  /* padding: 11px 7px; */
+  border-radius: 50%;
+  display: block;
+  line-height: 45px;
+  height: 45px;
+  width: 45px;
+  bottom: 70px;
+  right: 3px;
+  text-align: center;
+}
+
+.product-new-label-discount-feature-child {
+  position: absolute;
+  color: #fff;
+  font-size: 9px;
+  background-color: #d7292a;
+  /* padding: 4px 0px; */
+  border-radius: 50%;
+  display: block;
+  line-height: 21px;
+  height: 21px;
+  width: 21px;
+  bottom: 38%;
+  right: 0px;
+  text-align: center;
+}
+
+.product-new-label-discount-feature-subchild {
+  position: absolute;
+  color: #fff;
+  font-size: 8px;
+  background-color: #d7292a;
+  /* padding: 3px 0px; */
+  border-radius: 50%;
+  display: block;
+  line-height: 19px;
+  height: 19px;
+  width: 19px;
+  bottom: 41%;
+  right: 0px;
+  text-align: center;
+}
+
+.product-new-label-feature-subchild {
+  position: absolute;
+  color: #fff;
+  font-size: 9px;
+  background-color: #009345;
+  padding: 1px 2px;
+  border-radius: 0px;
+  display: block;
+  top: 0px;
+  left: 0px;
+}

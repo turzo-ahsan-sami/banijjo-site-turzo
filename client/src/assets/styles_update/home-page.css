@@ -1,0 +1,17 @@
+.see-more a {
+  color: #009345;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.custom-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}

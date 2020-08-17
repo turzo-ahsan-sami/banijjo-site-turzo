@@ -1,0 +1,133 @@
+/*Header Design*/
+.top-bar {
+  height: 70px;
+  background-color: #009345;
+}
+
+.helpline-icon {
+  width: 25px;
+}
+
+.search-box-area {
+  border: 1px solid #009345;
+  border-radius: 30px;
+  position: relative;
+  background: #fff;
+  display: block;
+  z-index: 11;
+  overflow: visible;
+  height: 40px;
+}
+.search-box {
+  width: 100%;
+  float: left;
+  position: relative;
+  height: 30px;
+  border-radius: 25px 0 0 25px;
+}
+.search-box input {
+  padding: 0 95px 0 20px;
+  float: left;
+  margin: 5px 10px 0;
+  outline: medium none;
+  height: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.search-box button {
+  position: absolute;
+  right: -3px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: #ec1c24;
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  z-index: 99;
+  top: -1px;
+  border-radius: 0 23px 23px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+  .search-box button {
+    width: 40px;
+  }
+  .search-icon{
+    font-size: 15px;
+    padding: 11px 0;
+  }
+}
+
+.custom-input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 13px;
+  text-decoration: none;
+}
+.custom-input:hover {
+  opacity: 1;
+}
+
+.cart-image {
+  height: 50px;
+  width: 60px;
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: #ec1c24;
+}
+
+.main-menu {
+  font-size: 15px;
+  color: #666;
+}
+.main-menu a {
+  color: #666;
+}
+.main-menu::after {
+  content: "|";
+  color: #009345;
+  padding-left: 0.5rem;
+}
+.main-menu:last-child:after{
+  content: '';
+}
+
+/*Header Mobile*/
+.dropdowntoggle::before,
+.dropdowntoggle::after {
+  background-color: transparent;
+  border: none;
+  content: none;
+}
+
+.dropdowntoggle {
+  background-color: transparent;
+  border: none;
+  margin-bottom: 32px;
+}
+
+.helpline-image {
+  max-width: 19px;
+  height: auto;
+}
+
+.cart-image-mobile {
+  max-width: 32px;
+  height: auto;
+}
+
+.badge-custom-mb {
+  padding: 0.23em 0.3em;
+  font-size: 65%;
+}
+
