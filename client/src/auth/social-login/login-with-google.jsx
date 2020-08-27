@@ -5,7 +5,7 @@ import GoogleLogin from "react-google-login";
 import "./social-login.css";
 
 const LoginWithGoogle = ({ submittedData }) => {
-  const responseGoogle = response => {
+  const responseGoogle = (response) => {
     const { name, email, googleId } = response.profileObj;
     submittedData({ name, email, id: googleId });
   };
@@ -14,7 +14,7 @@ const LoginWithGoogle = ({ submittedData }) => {
     <GoogleLogin
       // clientId="372727999602-vdp9vopdupngd3erqk0ho9le97q3narb.apps.googleusercontent.com"
       clientId="347434048473-o9s430qumgukn4fb6c60tdv4ius9sfoh.apps.googleusercontent.com"
-      render={renderProps => (
+      render={(renderProps) => (
         <button
           className="loginBtn loginBtn--google"
           onClick={renderProps.onClick}

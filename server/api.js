@@ -1285,6 +1285,68 @@ router.post("/add_cart_direct_from_wish", async (req, res) => {
   }
 });*/
 
+
+
+// bangladesh-geocode
+
+router.get("/getCityList", async (req, res) => {
+  try {
+    const districts = await query(`
+      SELECT district 
+      FROM bangladesh_geocode
+      GROUP BY district
+    `);
+    res.json(districts);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
+router.get("/getThanaList/:district", async (req, res) => {
+  const { district } = req.params;
+  try {
+    const thanas = await query(`
+      SELECT thana 
+      FROM bangladesh_geocode
+      WHERE district = '${district}'
+      GROUP BY thana           
+    `);
+    res.json(thanas);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
+router.get("/getAreaList/:thana", async (req, res) => {
+  const { thana } = req.params;
+  try {
+    const areas = await query(`
+      SELECT postoffice 
+      FROM bangladesh_geocode
+      WHERE thana = '${thana}'
+      GROUP BY postoffice           
+    `);
+    res.json(areas);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
+router.get("/getPostCode/:area", async (req, res) => {
+  const { area } = req.params;
+  try {
+    const postcode = await query(`
+      SELECT postcode 
+      FROM bangladesh_geocode
+      WHERE postoffice = '${area}'
+      GROUP BY postcode           
+    `);
+    res.json(postcode);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
 router.post("/saveCustomerAddress", async (req, res) => {
   console.log(req.body);
   const {
@@ -1292,24 +1354,30 @@ router.post("/saveCustomerAddress", async (req, res) => {
     name,
     address,
     phone_number,
-    city_id,
-    district_id,
-    area_id,
+    email,
+    customerCity,
+    customerThana,
+    customerArea,
+    customerDistrict,
+    customerPostCode,
   } = req.body;
 
   try {
     await query(`
       UPDATE
-        customer
+        customers_address
       SET
         name = ${JSON.stringify(name)},
         address = ${JSON.stringify(address)},
         phone_number = ${JSON.stringify(phone_number)},
-        city_id = ${JSON.stringify(city_id)},
-        area_id = ${JSON.stringify(area_id)},
-        district_id = ${JSON.stringify(district_id)}
+        email = ${JSON.stringify(email)},
+        city = ${JSON.stringify(customerCity)},
+        thana = ${JSON.stringify(customerThana)},
+        area = ${JSON.stringify(customerArea)},
+        district = ${JSON.stringify(customerDistrict)},
+        zipcode = ${JSON.stringify(customerPostCode)}
       WHERE
-        id = ${customerId} AND status = 'active';
+        id = ${customerId};
     `);
     res.json({ error: false, msg: "Update Successful" });
   } catch (e) {
@@ -1320,6 +1388,42 @@ router.post("/saveCustomerAddress", async (req, res) => {
     });
   }
 });
+
+// router.post("/saveCustomerAddress", async (req, res) => {
+//   console.log(req.body);
+//   const {
+//     customerId,
+//     name,
+//     address,
+//     phone_number,
+//     city_id,
+//     district_id,
+//     area_id,
+//   } = req.body;
+
+//   try {
+//     await query(`
+//       UPDATE
+//         customer
+//       SET
+//         name = ${JSON.stringify(name)},
+//         address = ${JSON.stringify(address)},
+//         phone_number = ${JSON.stringify(phone_number)},
+//         city_id = ${JSON.stringify(city_id)},
+//         area_id = ${JSON.stringify(area_id)},
+//         district_id = ${JSON.stringify(district_id)}
+//       WHERE
+//         id = ${customerId} AND status = 'active';
+//     `);
+//     res.json({ error: false, msg: "Update Successful" });
+//   } catch (e) {
+//     console.error(e);
+//     res.status(500).send({
+//       error: true,
+//       message: e.sqlMessage,
+//     });
+//   }
+// });
 
 router.get("/getCustomerAddress/:customer_id", async (req, res) => {
   try {
@@ -1824,6 +1928,62 @@ const get_city_dist_area = async (table_name, id) => {
   }
 };
 
+// router.get("/get_customer_info/:customer_id", async (req, res) => {
+//   const { customer_id } = req.params;
+//   try {
+//     let customer_info = await query(`
+//     SELECT
+//         id,
+//         name,
+//         email,
+//         profile_pic,
+//         social_login_id,
+//         phone_number,
+//         address,
+//         city_id,
+//         district_id,
+//         area_id
+//     FROM
+//         customer
+//     WHERE
+//         id = ${customer_id} AND status = 'active'
+//     `);
+
+//     customer_info = customer_info[0];
+
+//     const { city_id, district_id, area_id } = customer_info;
+
+//     if (city_id !== null) {
+//       const city_name = await get_city_dist_area("cities", city_id);
+//       customer_info = { ...customer_info, city_name };
+//     } else {
+//       customer_info = { ...customer_info, city_name: "" };
+//     }
+
+//     if (district_id !== null) {
+//       const district_name = await get_city_dist_area("districts", district_id);
+//       customer_info = {
+//         ...customer_info,
+//         district_name,
+//       };
+//     } else {
+//       customer_info = { ...customer_info, district_name: "" };
+//     }
+
+//     if (area_id !== null) {
+//       const area_name = await get_city_dist_area("areas", area_id);
+//       customer_info = { ...customer_info, area_name };
+//     } else {
+//       customer_info = { ...customer_info, area_name: "" };
+//     }
+
+//     // customer_info = omit(customer_info[0], ['password', 'status']);
+//     return res.json(customer_info);
+//   } catch (e) {
+//     res.send(e);
+//   }
+// });
+
 router.get("/get_customer_info/:customer_id", async (req, res) => {
   const { customer_id } = req.params;
   try {
@@ -1836,42 +1996,44 @@ router.get("/get_customer_info/:customer_id", async (req, res) => {
         social_login_id,
         phone_number,
         address,
-        city_id,
-        district_id,
-        area_id
+        city,
+        thana,
+        area,
+        district,
+        zipcode
     FROM
-        customer
+      customers_address
     WHERE
-        id = ${customer_id} AND status = 'active'
+        id = ${customer_id}
     `);
 
     customer_info = customer_info[0];
 
-    const { city_id, district_id, area_id } = customer_info;
+    // const { city_id, district_id, area_id } = customer_info;
 
-    if (city_id !== null) {
-      const city_name = await get_city_dist_area("cities", city_id);
-      customer_info = { ...customer_info, city_name };
-    } else {
-      customer_info = { ...customer_info, city_name: "" };
-    }
+    // if (city_id !== null) {
+    //   const city_name = await get_city_dist_area("cities", city_id);
+    //   customer_info = { ...customer_info, city_name };
+    // } else {
+    //   customer_info = { ...customer_info, city_name: "" };
+    // }
 
-    if (district_id !== null) {
-      const district_name = await get_city_dist_area("districts", district_id);
-      customer_info = {
-        ...customer_info,
-        district_name,
-      };
-    } else {
-      customer_info = { ...customer_info, district_name: "" };
-    }
+    // if (district_id !== null) {
+    //   const district_name = await get_city_dist_area("districts", district_id);
+    //   customer_info = {
+    //     ...customer_info,
+    //     district_name,
+    //   };
+    // } else {
+    //   customer_info = { ...customer_info, district_name: "" };
+    // }
 
-    if (area_id !== null) {
-      const area_name = await get_city_dist_area("areas", area_id);
-      customer_info = { ...customer_info, area_name };
-    } else {
-      customer_info = { ...customer_info, area_name: "" };
-    }
+    // if (area_id !== null) {
+    //   const area_name = await get_city_dist_area("areas", area_id);
+    //   customer_info = { ...customer_info, area_name };
+    // } else {
+    //   customer_info = { ...customer_info, area_name: "" };
+    // }
 
     // customer_info = omit(customer_info[0], ['password', 'status']);
     return res.json(customer_info);
@@ -2632,6 +2794,11 @@ router.get("/top_main_banners", async (req, res) => {
     res.send(e);
   }
 });
+
+
+
+
+
 
 // CART APIs
 

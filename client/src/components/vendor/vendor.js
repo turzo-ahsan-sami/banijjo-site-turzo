@@ -226,7 +226,7 @@ class Vendor extends Component {
                             <div className="col-md-3 col-sm-12">
                                 <img
                                     className="img-fluid mt-4"
-                                    src="https://admin.banijjo.com.bd/upload/product/compressedProductImages/banner3.png"
+                                    src="https://store.banijjo.com.bd/upload/product/compressedProductImages/banner3.png"
                                     alt="Ads"
                                     title="Ads"
                                 />

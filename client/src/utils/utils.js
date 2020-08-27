@@ -35,3 +35,10 @@ export const capitalize_and_unsluygify = str =>
 export const comma_separate_numbers = num =>{
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+export const IsNullOrEmpty = input => {
+  if(input === "") return true;
+  if(input === null) return true;
+  if(input === undefined) return true;
+  return false;
+}

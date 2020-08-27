@@ -8,13 +8,13 @@ HTTS=true
 CHOKIDAR_USEPOLLING=true
 REACT_APP_FRONTEND_SERVER_URL = https://banijjo.com.bd:3001
 REACT_APP_FRONTEND_URL = https://banijjo.com.bd/
-REACT_APP_FILE_URL = https://admin.banijjo.com.bd
+REACT_APP_FILE_URL = https://store.banijjo.com.bd
 
 
 CHOKIDAR_USEPOLLING=true
 REACT_APP_FRONTEND_SERVER_URL = https://banijjo.com:3006
 REACT_APP_FRONTEND_URL = https://banijjo.com/
-REACT_APP_FILE_URL = https://admin.banijjo.com
+REACT_APP_FILE_URL = https://store.banijjo.com
 
 local & bd
 REACT_APP_FRONTEND_Local_SERVER_URL = http://localhost:3001

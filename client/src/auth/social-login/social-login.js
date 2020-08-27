@@ -17,6 +17,7 @@ const SocialLogin = ({ setAuthentication, history }) => {
       setAuthentication(true);
       localStorage.setItem("customer_id", res.data.customer_id);
       history.push("/");
+      window.location.reload(false);
     });
   };
 

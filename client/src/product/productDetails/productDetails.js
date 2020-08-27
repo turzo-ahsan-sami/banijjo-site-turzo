@@ -353,10 +353,10 @@ const ProductDetails = (props) => {
   };
 
   const addToLocalStorage = (data) => (e) => {
-    getProductStockQuantity().then((data) => {
-      console.log(data);
-    });
-    return;
+    // getProductStockQuantity().then((data) => {
+    //   console.log(data);
+    // });
+    // return;
 
     if (!checkProductToCartEligibility()) return;
 

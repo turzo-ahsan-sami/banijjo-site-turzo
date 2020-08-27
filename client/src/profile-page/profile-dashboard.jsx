@@ -18,10 +18,10 @@ class ProfileDashboard extends Component {
         <div className="col-md-9">
           <Switch>
             <Redirect exact from="/profile" to="/profile/view-profile" />
-            <Route path="/profile/view-profile" component={ViewProfile} />
+            {/* <Route path="/profile/view-profile" component={ViewProfile} />
             <Route path="/profile/change-password" component={ChangePassword} />
             <Route path="/profile/change-address" component={ChangeAddress} />
-            <Route path="/profile/my-orders" component={MyOrders} />
+            <Route path="/profile/my-orders" component={MyOrders} /> */}
           </Switch>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import axios from "axios";
 import CartIcon from "./cart-icon";
 import {
   Button,
@@ -11,19 +12,37 @@ import {
   DropdownButton,
   Dropdown,
 } from "react-bootstrap";
+import {
+  base,
+  frontEndUrl,
+  fileUrl,
+  emailPattern,
+  options,
+} from "../../../utils/common-helpers";
 
 class TopNav extends Component {
   state = {
     isAuthenticated: false,
     viewType: this.props.viewType,
-    mobilePhoneHref : `tel:${this.props.companyInfo.telephone}`
+    mobilePhoneHref: `tel:${this.props.companyInfo.telephone}`,
+    customerName: "",
   };
 
   componentDidMount() {
     const customer_id = localStorage.getItem("customer_id");
     if (customer_id) {
       this.setState({ isAuthenticated: true });
+      this.getCustomerInfo(customer_id);
     }
+  }
+
+  getCustomerInfo(customer_id) {
+    console.log("logged in...", customer_id);
+    axios.get(`${base}/api/get_customer_info/${customer_id}`).then((res) => {
+      const { name, address, phone_number } = res.data;
+      this.setState({ customerName: name });
+      console.log(res.data);
+    });
   }
 
   set_or_remove_authentication = (data) => {
@@ -153,7 +172,8 @@ class TopNav extends Component {
     if (localStorage.hasOwnProperty("customer_id")) {
       localStorage.removeItem("customer_id");
     }
-    this.props.history.push("/");
+    // this.props.history.push("/");
+    window.location.reload(false);
   };
 
   render() {
@@ -166,7 +186,7 @@ class TopNav extends Component {
               <li className="nav-item">
                 <a
                   className="nav-link nav-link-padding nav-link-custom"
-                  href="https://admin.banijjo.com.bd/"
+                  href="https://store.banijjo.com.bd"
                   target="_blank"
                 >
                   <i className="fas fa-sign-in-alt pr-1" aria-hidden="true"></i>{" "}
@@ -175,8 +195,9 @@ class TopNav extends Component {
               </li>
               <li className="nav-item">
                 <a
-                  href="/blog"
                   className="nav-link nav-link-padding nav-link-custom"
+                  href="https://blog.banijjo.com"
+                  target="_blank"
                 >
                   <i className="fas fa-rss pr-1" aria-hidden="true"></i>
                   Blog
@@ -225,7 +246,9 @@ class TopNav extends Component {
                     className="fa fa-user-o icon-class-rightmenu"
                     aria-hidden="true"
                   ></i>
-                  Account
+                  {this.state.customerName
+                    ? this.state.customerName
+                    : "Account"}
                 </a>
 
                 <ul
@@ -237,7 +260,12 @@ class TopNav extends Component {
                       <div className="row">
                         <div className="col-lg-12">
                           <p className="text-center">
-                            <strong>Welcome to Banijjo!</strong>
+                            <strong>
+                              Welcome{" "}
+                              {this.state.customerName
+                                ? this.state.customerName
+                                : "to Banijjo!"}
+                            </strong>
                           </p>
                           <div className="customerDiv">
                             {isAuthenticated
@@ -310,7 +338,10 @@ class TopNav extends Component {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                    <a className="dropdown-item  helpline-number" href={mobilePhoneHref}>
+                    <a
+                      className="dropdown-item  helpline-number"
+                      href={mobilePhoneHref}
+                    >
                       {this.props.companyInfo.telephone}
                     </a>
                   </div>
@@ -335,7 +366,12 @@ class TopNav extends Component {
                       <div className="row">
                         <div className="col-12">
                           <p className="text-center">
-                            <strong>Welcome to Banijjo!</strong>
+                            <strong>
+                              Welcome{" "}
+                              {this.state.customerName
+                                ? this.state.customerName
+                                : "to Banijjo!"}
+                            </strong>
                           </p>
                           <div className="customerDiv">
                             {isAuthenticated
@@ -380,7 +416,7 @@ class TopNav extends Component {
                   >
                     <a
                       className="dropdown-item dropdownItemMobile"
-                      href="https://admin.banijjo.com.bd/"                      
+                      href="https://store.banijjo.com.bd/"
                       target="_blank"
                     >
                       Seller Center

@@ -34,7 +34,7 @@ class MoreCategory extends Component {
       });
   }
   render() {
-    // let url = 'http://admin.banijjo.com.bd';
+    // let url = 'http://store.banijjo.com.bd';
     // let counter = 1;
     // let specificationName = '';
     return (
