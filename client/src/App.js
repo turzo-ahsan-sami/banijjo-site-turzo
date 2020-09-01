@@ -24,6 +24,11 @@ import WishList from "./product/wishList";
 import Shopping_Cart from "./components/shopping-cart/shopping-cart";
 import CheckOut from "./components/shopping-cart/check-out";
 
+import ViewProfile from "./components/user-profile/view-profile";
+import ChangeAddress from "./components/user-profile/change-address";
+import ChangePassword from "./components/user-profile/change-password";
+import MyOrders from "./components/user-profile/my-orders";
+
 // const Layout = React.lazy(() => import("./components/layout/base-layout"));
 // const HomePage = React.lazy(() => import("./homePage/HomePage"));
 // const Search = React.lazy(() => import("./product/search"));
@@ -115,7 +120,13 @@ class App extends Component {
 
                         <Route exact path="/wish" component={WishList} />
                         <Route exact path="/contactUs" component={ContactUs} />
-                        <Route path="/profile" component={ProfileDashboard} />
+
+                        {/* <Route path="/profile" component={ProfileDashboard} /> */}
+
+                        <Route path="/profile/view-profile" component={ViewProfile} />
+                        <Route path="/profile/change-address" component={ChangeAddress} />
+                        <Route path="/profile/change-password" component={ChangePassword} />
+                        <Route path="/profile/my-orders" component={MyOrders} />
 
                         <Route
                           exact

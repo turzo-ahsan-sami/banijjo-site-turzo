@@ -5,18 +5,18 @@ import {
   GET_CUSTOMER_INFO,
   GET_ORDER_HISTORY,
   RESET_PASSWORD_ERROR,
-  UPLOAD_CUSTOMER_PHOTO
+  UPLOAD_CUSTOMER_PHOTO,
 } from "./customer-action-types";
 
 const base = process.env.REACT_APP_FRONTEND_SERVER_URL;
 
 const config = {
   headers: {
-    "Content-Type": "application/json"
-  }
+    "Content-Type": "application/json",
+  },
 };
 
-export const get_customer_info = customer_id => async dispatch => {
+export const get_customer_info = (customer_id) => async (dispatch) => {
   try {
     const res = await axios.get(`${base}/api/get_customer_info/${customer_id}`);
     dispatch({ type: GET_CUSTOMER_INFO, payload: res.data });
@@ -25,7 +25,7 @@ export const get_customer_info = customer_id => async dispatch => {
   }
 };
 
-export const get_order_history = customer_id => async dispatch => {
+export const get_order_history = (customer_id) => async (dispatch) => {
   try {
     const res = await axios.get(`${base}/api/get_order_history/${customer_id}`);
     dispatch({ type: GET_ORDER_HISTORY, payload: res.data });
@@ -34,10 +34,9 @@ export const get_order_history = customer_id => async dispatch => {
   }
 };
 
-export const change_customer_address = (
-  customer_id,
-  form_data
-) => async dispatch => {
+export const change_customer_address = (customer_id, form_data) => async (
+  dispatch
+) => {
   try {
     await axios.post(
       `${base}/api/change_customer_address`,
@@ -53,10 +52,9 @@ export const change_customer_address = (
   }
 };
 
-export const change_customer_password = (
-  customer_id,
-  form_data
-) => async dispatch => {
+export const change_customer_password = (customer_id, form_data) => async (
+  dispatch
+) => {
   try {
     const res = await axios.post(
       `${base}/api/change_customer_password`,
@@ -66,12 +64,12 @@ export const change_customer_password = (
     if (res.data.error) {
       dispatch({
         type: CHANGE_CUSTOMER_PASSWORD,
-        payload: { ...res.data, success: false }
+        payload: { ...res.data, success: false },
       });
     } else {
       dispatch({
         type: CHANGE_CUSTOMER_PASSWORD,
-        payload: { ...res.data, success: true }
+        payload: { ...res.data, success: true },
       });
     }
   } catch (e) {
@@ -79,12 +77,12 @@ export const change_customer_password = (
   }
 };
 
-export const reset_password_error = () => dispatch =>
+export const reset_password_error = () => (dispatch) =>
   dispatch({
     type: RESET_PASSWORD_ERROR,
-    payload: { error: false, success: false, msg: "" }
+    payload: { error: false, success: false, msg: "" },
   });
 
-export const upload_customer_photo = profile_pic => dispatch => {
+export const upload_customer_photo = (profile_pic) => (dispatch) => {
   dispatch({ type: UPLOAD_CUSTOMER_PHOTO, payload: profile_pic });
 };

@@ -61,7 +61,7 @@ class TopNav extends Component {
           <div className="row">
             <div className="col-6">
               <Link
-                to="/profile"
+                to="/profile/view-profile"
                 id="profileButton"
                 className="btn btn-primary profile-register ml-2"
               >
@@ -84,7 +84,7 @@ class TopNav extends Component {
           <div className="row">
             <div className="col-6">
               <Link
-                to="/profile"
+                to="/profile/view-profile"
                 id="profileButton"
                 className="btn btn-primary btn-sm profile-register ml-2 pt-2"
               >

@@ -53,6 +53,24 @@ ol {
   border-color: #009345;
 }
 
+.btn-primary {
+  color: #fff;
+  background-color: #009345;
+  border-color: #009345;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #009345;
+  border-color: #009345;
+}
+
+
 a.text-primary:focus,
 a.text-primary:hover {
   color: #009345 !important;
