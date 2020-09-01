@@ -7,6 +7,7 @@ import Autosuggest from "react-autosuggest";
 import { change_customer_address } from "../../redux/customer-profile/customer-actions";
 
 import ProfilePageNav from "./profile-nav";
+import UpdateCustomerAddress from "../shared/update-customer-address";
 
 const base = process.env.REACT_APP_FRONTEND_SERVER_URL;
 
@@ -238,103 +239,10 @@ class ChangeAddress extends Component {
           </div>
 
           <div className="col-lg-9 col-md-12">
-            <Fragment>
-              <h3>Change Address</h3>
-              <div className="well" style={{ borderRadius: "0" }}>
-                <form onSubmit={this.onSubmitHandler} autoComplete="chrome-off">
-                  <div className="form-group">
-                    <label htmlFor="phone_number">Phone Number</label>
-                    <input
-                      type="input"
-                      id="phone_number"
-                      className="form-control"
-                      name="phone_number"
-                      value={phone_number}
-                      onChange={this.onChangeHandler}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="address">Address</label>
-                    <textarea
-                      id="address"
-                      className="form-control"
-                      rows="3"
-                      name="address"
-                      value={address}
-                      onChange={this.onChangeHandler}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="district">District</label>
-                    <Autosuggest
-                      suggestions={district_suggestions}
-                      onSuggestionsFetchRequested={
-                        this.onDistrictSuggestionsFetchRequested
-                      }
-                      onSuggestionsClearRequested={
-                        this.onDistrictSuggestionsClearRequested
-                      }
-                      onSuggestionSelected={this.onDistrictSuggestionSelected}
-                      getSuggestionValue={getSuggestionDistrict}
-                      renderSuggestion={renderSuggestion}
-                      inputProps={districtInputProps}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="district">City</label>
-                    <Autosuggest
-                      suggestions={city_suggestions}
-                      onSuggestionsFetchRequested={
-                        this.onCitySuggestionsFetchRequested
-                      }
-                      onSuggestionsClearRequested={
-                        this.onCitySuggestionsClearRequested
-                      }
-                      onSuggestionSelected={this.onCitySuggestionSelected}
-                      getSuggestionValue={getSuggestionCity}
-                      renderSuggestion={renderSuggestion}
-                      inputProps={cityInputProps}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="district">Area</label>
-                    <Autosuggest
-                      suggestions={area_suggestions}
-                      onSuggestionsFetchRequested={
-                        this.onAreaSuggestionsFetchRequested
-                      }
-                      onSuggestionsClearRequested={
-                        this.onAreaSuggestionsClearRequested
-                      }
-                      onSuggestionSelected={this.onAreaSuggestionSelected}
-                      getSuggestionValue={getSuggestionArea}
-                      renderSuggestion={renderSuggestion}
-                      inputProps={areaInputProps}
-                    />
-                  </div>
-
-                  <div className="row">
-                    <div className="col-md-3">
-                      <button type="submit" className="btn btn-primary">
-                        Submit
-                      </button>
-                    </div>
-                    <div className="col-md-3 pull-right">
-                      <Link
-                        to="/profile/view-profile"
-                        className="btn btn-default"
-                      >
-                        Cancel
-                      </Link>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </Fragment>
+            <h3>Update Address</h3>
+            <div className="well" style={{ borderRadius: "0" }}>
+              <UpdateCustomerAddress />
+            </div>
           </div>
         </div>
       </div>

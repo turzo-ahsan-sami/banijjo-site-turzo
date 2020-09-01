@@ -8,6 +8,7 @@ const auth = require("./authFunctionality");
 const temp_wish = require("./tempSellWishList");
 const featureProductHelper = require("./feature_product_list_helper");
 const vendor = require("./vendorHelper");
+const nodemailer = require("nodemailer");
 
 // const upload_path = `${__dirname}/../../upload/customerPhoto/`;
 const upload_path = `${__dirname}/../../banijjoAdmin/public/upload/customerPhoto/`;
@@ -2819,6 +2820,57 @@ router.post("/cart/getProductStockQuantity", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+
+
+/*
+*
+* FORGOT PASSWORD
+*
+*/
+
+const mailBox = nodemailer.createTransport({
+  service: 'banijjo',
+  auth: {
+    user: 'info@banijjo.com.bd',
+    pass: 'banijjo!@#$%'
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
+
+
+router.post('/submit-email-for-password-reset', async function (req, res) {
+  try {
+      const cipher = crypto.createCipher('aes192', 'a password');
+      var encrypted = cipher.update(req.body.email_address, 'utf8', 'hex');
+      encrypted += cipher.final('hex');
+
+      var url = `https://store.banijjo.com.bd/resetpassword/${encrypted}`
+
+      var mailOption = {
+          from : 'info@banijjo.com.bd',
+          to : req.body.email_address,
+          subject : 'Reset Password',
+          html: `Please click the link to reset your password : <a href="${url}"> ${url} </a>`
+      }
+
+      mailBox.sendMail(mailOption, function (error, info) {
+          if (error) {
+              console.log(error);
+          }
+          else {
+              console.log('Email sent : ', info,process);
+          }
+      })    
+      return res.send({success: true, message: 'Succesfully sent the link to your email address!'});
+  } catch (e) {
+      console.log(e);
+      return res.send({success: false, message: 'Something went wrong! Please try again later!', error: e});
+  }
+});
+
 
 //Apis for site-map
 router.use("/", require("./sitemap.routes"));

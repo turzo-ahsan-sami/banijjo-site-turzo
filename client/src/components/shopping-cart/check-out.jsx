@@ -59,7 +59,7 @@ const CheckOut = () => {
   const [customerPostCode, set_customerPostCode] = useState("");
     
   const [alert_text, set_alert_text] = useState(
-    "Could not complete purchse. Please try again later."
+    "Could not complete purchase. Please try again later."
   );
 
   useEffect(() => {

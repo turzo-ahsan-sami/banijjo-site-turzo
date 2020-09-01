@@ -78,11 +78,14 @@ class ViewProfile extends Component {
       address,
       profile_pic,
       phone_number,
-      city_name,
-      district_name,
-      area_name,
+      city,
+      district,
+      area,
+      thana,
+      zipcode
     } = this.props.customer_profile;
 
+    console.log('this.props.customer_profile...', this.props.customer_profile);
     // const { uploaded_file } = this.state;
 
     return (
@@ -158,15 +161,23 @@ class ViewProfile extends Component {
                   </tr>
                   <tr>
                     <th width="200">Area</th>
-                    <td>{area_name ? area_name : ""}</td>
+                    <td>{area ? area : ""}</td>
+                  </tr>
+                  <tr>
+                    <th width="200">Thana</th>
+                    <td>{thana ? thana : ""}</td>
                   </tr>
                   <tr>
                     <th width="200">City</th>
-                    <td>{city_name ? city_name : ""}</td>
+                    <td>{city ? city : ""}</td>
                   </tr>
                   <tr>
                     <th width="200">District</th>
-                    <td>{district_name ? district_name : ""}</td>
+                    <td>{district ? district : ""}</td>
+                  </tr>
+                  <tr>
+                    <th width="200">Zipcode</th>
+                    <td>{zipcode ? zipcode : ""}</td>
                   </tr>
                 </tbody>
               </table>
