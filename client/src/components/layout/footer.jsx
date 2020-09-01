@@ -277,7 +277,7 @@ const Footer = ({ companyInfo }) => {
             {companyInfo && (
               <div className="col-lg-6 col-md-12">
                 &copy; 2020-2029{" "}
-                <a href="https://banijjo.com" className="banijjo-link">
+                <a href="https://banijjo.com.bd" className="banijjo-link">
                   <span>banijjo.com</span>
                 </a>
                 &nbsp; All rights reserved.

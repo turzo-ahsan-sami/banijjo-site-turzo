@@ -421,6 +421,20 @@ class TopNav extends Component {
                     >
                       Seller Center
                     </a>
+                    <a
+                      className="dropdown-item dropdownItemMobile"
+                      href="https://blog.banijjo.com"
+                      target="_blank"
+                    >
+                      Blog
+                    </a>
+                    <a
+                      className="dropdown-item dropdownItemMobile"
+                      href="#"
+                      target="_blank"
+                    >
+                      News
+                    </a>
                     <a className="dropdown-item dropdownItemMobile" href="#">
                       Help
                     </a>
