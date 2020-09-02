@@ -9,7 +9,7 @@ const temp_wish = require("./tempSellWishList");
 const featureProductHelper = require("./feature_product_list_helper");
 const vendor = require("./vendorHelper");
 const nodemailer = require("nodemailer");
-
+const crypto = require('crypto');
 // const upload_path = `${__dirname}/../../upload/customerPhoto/`;
 const upload_path = `${__dirname}/../../banijjoAdmin/public/upload/customerPhoto/`;
 
@@ -2840,8 +2840,23 @@ const mailBox = nodemailer.createTransport({
   }
 });
 
+router.get('/check-email', async function (req, res) {
+  try {
+    const check_email = await query('SELECT COUNT(id) AS count_id FROM customers_address WHERE email LIKE "'+req.query.email+'"');
+    
+    if (check_email[0].count_id == 1) {
+        return res.send({success: true, message: 'Successfully found!'});
+    }
+    else {
+        return res.send({success: false, message: 'Did not find the email address!'});
+    }
+  }
+  catch (error) {
+    return res.send({success: false, message: 'Something went wrong! Please comeback later!'});
+  }
+});
 
-router.post('/submit-email-for-password-reset', async function (req, res) {
+router.post('/forgot-password', async function (req, res) {
   try {
       const cipher = crypto.createCipher('aes192', 'a password');
       var encrypted = cipher.update(req.body.email_address, 'utf8', 'hex');

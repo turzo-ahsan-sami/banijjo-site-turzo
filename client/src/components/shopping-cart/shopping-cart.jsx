@@ -95,6 +95,8 @@ const Shopping_Cart = () => {
 
   return (
     <React.Fragment>
+      
+      {/* Policy Modal  */}
       <button
         style={{ display: "none !important" }}
         className="d-none"
@@ -104,7 +106,6 @@ const Shopping_Cart = () => {
         data-target="#policyModal"
       ></button>
 
-      {/* Policy Modal  */}
       <div
         className="modal fade"
         id="policyModal"
