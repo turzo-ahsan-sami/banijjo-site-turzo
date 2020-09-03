@@ -60,11 +60,11 @@ const ListingFeaturedCategoryTreeMB = ({ featuredCategories }) => {
 
       {/* tree 1 */}
       {tree1 &&
-        tree1.map((tree) => (
-          <>
-            <div className="row">
+        tree1.map(( tree, index ) => (
+          <React.Fragment key={index} >
+            <div className="row" key={tree.cat_info.id}>
               <div className="col-12 mt-1">
-                <h1 className="h6 float-left" key={tree.cat_info.id}>
+                <h1 className="h6 float-left">
                   {capitalizeStr(tree.cat_info.category_name)}
                 </h1>
                 <a href={`/productList/${tree.cat_info.slug}`} className="float-right see-more">
@@ -87,16 +87,16 @@ const ListingFeaturedCategoryTreeMB = ({ featuredCategories }) => {
                   </div>
                 ))}
             </div>
-          </>
+          </React.Fragment>
         ))}
 
       {/* tree 2 */}
       {tree2 &&
-        tree2.map((tree) => (
-          <>
-            <div className="row">
+        tree2.map(( tree, index ) => (
+          <React.Fragment key={index} >
+            <div className="row" key={tree.cat_info.id}>
               <div className="col-12 mt-1">
-                <h1 className="h6 float-left" key={tree.cat_info.id}>
+                <h1 className="h6 float-left">
                   {capitalizeStr(tree.cat_info.category_name)}
                 </h1>
                 <a href={`/productList/${tree.cat_info.slug}`} className="float-right see-more">
@@ -119,7 +119,7 @@ const ListingFeaturedCategoryTreeMB = ({ featuredCategories }) => {
                   </div>
                 ))}
             </div>
-          </>
+          </React.Fragment>
         ))}
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import InfiniteScroll from "react-infinite-scroll-component";
-
+import LazyLoad from 'react-lazyload';
 import { capitalizeStr } from "../utils/utils";
 
 import CookieConsentComponent from "../components/home-page/cookie-consent";
@@ -219,14 +219,20 @@ const HomePage = () => {
           </div>
 
           <div className="col-lg-9 col-md-12">
-            <MainSlider images={mainSliderImages} />
-            <SubSlider products={bannerImagesProducts} />
+            <LazyLoad height={200} once >
+              <MainSlider images={mainSliderImages} />
+            </LazyLoad>
+            <LazyLoad height={200} once >
+              <SubSlider products={bannerImagesProducts} />
+            </LazyLoad>
           </div>
         </div>
 
         <div className="mt-4">
           <h1 className="h5">{capitalizeStr(hotDealProducts.title)}</h1>
-          <HotDealSlider products={hotDealProducts.products} />
+          <LazyLoad height={200} once >
+            <HotDealSlider products={hotDealProducts.products} />
+          </LazyLoad>
         </div>
 
         <div className="row mt-4">
@@ -407,23 +413,29 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <VendorCarouselSlider vendors={vendors.vendors} />
+          <LazyLoad height={200} once >
+            <VendorCarouselSlider vendors={vendors.vendors} />
+          </LazyLoad>
         </div>
 
         {featuredCategories && (
           <>
             <div className="d-none d-lg-block mt-4">
               <h1 className="h5">Featured Categories</h1>
-              <ListingFeaturedCategoryTree
-                featuredCategories={featuredCategories}
-              />
+              <LazyLoad height={200}>
+                <ListingFeaturedCategoryTree
+                  featuredCategories={featuredCategories}
+                />
+              </LazyLoad>
             </div>
 
             <div className="d-block d-lg-none mt-4">
               <h1 className="h5">Featured Categories</h1>
-              <ListingFeaturedCategoryTreeMB
-                featuredCategories={featuredCategories}
-              />
+              <LazyLoad height={200}>
+                <ListingFeaturedCategoryTreeMB
+                  featuredCategories={featuredCategories}
+                />
+              </LazyLoad>
             </div>
           </>
         )}

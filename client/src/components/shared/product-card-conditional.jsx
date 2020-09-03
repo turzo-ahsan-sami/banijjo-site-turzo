@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
 import {
   calDiscountPercentage,
   capitalizeStr,
@@ -17,18 +18,20 @@ const ProductCardConditional = ({ product, customNewLabelCSSDesktop, customDisco
     <>
       <div className="card">
         <a href={`/productDetails/${product.slug}`}>
-          <img
-            className="card-img-top"
-            src={`${img_src}/${product.home_image}`}
-            onMouseOver={(e) =>
-              (e.currentTarget.src = `${img_src}/${product.images[1].imageName}`)
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.src = `${img_src}/${product.home_image}`)
-            }
-            alt={capitalizeStr(product.product_name)}
-            title={capitalizeStr(product.product_name)}
-          />
+          <LazyLoad height={200}>
+            <img
+              className="card-img-top"
+              src={`${img_src}/${product.home_image}`}
+              onMouseOver={(e) =>
+                (e.currentTarget.src = `${img_src}/${product.images[1].imageName}`)
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.src = `${img_src}/${product.home_image}`)
+              }
+              alt={capitalizeStr(product.product_name)}
+              title={capitalizeStr(product.product_name)}
+            />
+          </LazyLoad>
         </a>
 
         {/* desktop  */}

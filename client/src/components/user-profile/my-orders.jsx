@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import Moment from "react-moment";
-import "moment-timezone";
 
 import { get_order_history } from "../../redux/customer-profile/customer-actions";
 
@@ -16,6 +14,11 @@ class MyOrders extends Component {
     if (localStorage.hasOwnProperty("customer_id")) {
       this.props.get_order_history(localStorage.getItem("customer_id"));
     }
+  }
+
+  formatDate(string){
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(string).toLocaleDateString([],options);
   }
 
   render() {
@@ -52,9 +55,7 @@ class MyOrders extends Component {
                         <td>{el.order_amount}</td>
                         <td>{el.shipping_address}</td>
                         <td>{el.status}</td>
-                        <td>
-                          <Moment format="DD/MM/YYYY">{el.order_time}</Moment>
-                        </td>
+                        <td>{el.order_time}</td>
                       </tr>
                     ))}
                   </tbody>
