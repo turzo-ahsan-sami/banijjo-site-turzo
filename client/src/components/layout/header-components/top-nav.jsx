@@ -188,6 +188,7 @@ class TopNav extends Component {
                   className="nav-link nav-link-padding nav-link-custom"
                   href="https://store.banijjo.com.bd"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <i className="fas fa-sign-in-alt pr-1" aria-hidden="true"></i>{" "}
                   Seller Center
@@ -198,6 +199,7 @@ class TopNav extends Component {
                   className="nav-link nav-link-padding nav-link-custom"
                   href="https://blog.banijjo.com"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <i className="fas fa-rss pr-1" aria-hidden="true"></i>
                   Blog
@@ -418,6 +420,7 @@ class TopNav extends Component {
                       className="dropdown-item dropdownItemMobile"
                       href="https://store.banijjo.com.bd/"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Seller Center
                     </a>
@@ -425,6 +428,7 @@ class TopNav extends Component {
                       className="dropdown-item dropdownItemMobile"
                       href="https://blog.banijjo.com"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Blog
                     </a>
@@ -432,6 +436,7 @@ class TopNav extends Component {
                       className="dropdown-item dropdownItemMobile"
                       href="#"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       News
                     </a>

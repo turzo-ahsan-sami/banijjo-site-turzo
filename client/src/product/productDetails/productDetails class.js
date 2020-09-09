@@ -970,7 +970,7 @@ class ProductDetails extends Component {
                             </button>
                           <p align="left">
                             {/*eslint-disable-next-line*/}
-                            <a href={`!#`} target="_blank">
+                            <a href={`!#`} target="_blank" rel="noopener noreferrer">
                               Forgot Password?
                               </a>
                           </p>
@@ -1013,7 +1013,7 @@ class ProductDetails extends Component {
                             </button>
                           <p align="left">
                             {/*eslint-disable-next-line*/}
-                            <a href="!#" target="_blank">
+                            <a href="!#" target="_blank" rel="noopener noreferrer">
                               Forgot Password?
                               </a>
                           </p>
