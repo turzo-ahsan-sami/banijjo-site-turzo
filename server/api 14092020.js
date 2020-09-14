@@ -627,8 +627,6 @@ router.post("/payOrder", async (req, res) => {
         ts.quantity, 
         p.productPrice, 
         p.vendor_id as vendorId
-        p.entry_by as entry_by
-        p.entry_user_type as entry_user_type
       FROM 
         temp_sell ts JOIN products p ON ts.productId = p.id
       WHERE 
@@ -641,7 +639,8 @@ router.post("/payOrder", async (req, res) => {
     // may not be needed already calculated in frontend
     for (const tempSellItem of tempSells) {
       totalQuantity = totalQuantity + tempSellItem.quantity;
-      totalPrice = totalPrice + tempSellItem.productPrice * tempSellItem.quantity;
+      totalPrice =
+        totalPrice + tempSellItem.productPrice * tempSellItem.quantity;
     }
 
     // can be calculated using data send from cart
@@ -650,7 +649,8 @@ router.post("/payOrder", async (req, res) => {
     // calculation for bill generate
     var date = new Date();
     var year = date.getFullYear();
-    var todayDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    var todayDate =
+      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 
     // Ask sajib vai.
     String.prototype.lpad = function (padString, length) {
@@ -734,14 +734,10 @@ router.post("/payOrder", async (req, res) => {
 
       if (itemInventory > tempSellItem.quantity) {
         const insertData = await query(
-          "insert into sales_details(customerId, entry_by, entry_user_type, salesBillId, productId, colorId, sizeId, sales_product_quantity,unitPrice,total_amount,customer_payable_amount,discounts_amount) VALUES('" +
+          "insert into sales_details(customerId,salesBillId,productId,colorId, sizeId, sales_product_quantity,unitPrice,total_amount,customer_payable_amount,discounts_amount) VALUES('" +
             customerId +
             "','" +
             salesId +
-            "','" +
-            tempSellItem.entry_by +
-            "','" +
-            tempSellItem.entry_user_type +
             "','" +
             tempSellItem.productId +
             "','" +
